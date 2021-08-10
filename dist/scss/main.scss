@@ -1,11 +1,11 @@
-$primary-color: pink;
-$accent-color: purple;
-$text-color: white;
-$font-weights: (
-    "regular": 400,
-    "medium": 500,
-    "bold": 700
-);
+/*Great for breaking up the components to work on them individually*/
+
+@import './resets';
+@import './variables';
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
 
 /*Great for if you need to change, for instance, sizing in many different places. Can just change it where you define the variable*/
 
@@ -17,11 +17,14 @@ body {
 /*Nesting is great visually and if you're feeling lazy*/ 
 
 .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     margin: 0 auto;
 
     #{&}_paragraph {
-        font-weight: map-get($font-weights, bold);
+        font-weight: weight(regular);
         
         &:hover {
             color: purple;
