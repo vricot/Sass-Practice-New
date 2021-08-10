@@ -1,0 +1,31 @@
+$primary-color: pink;
+$accent-color: purple;
+$text-color: white;
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+
+/*Great for if you need to change, for instance, sizing in many different places. Can just change it where you define the variable*/
+
+body {
+    background: $primary-color;
+    color: $text-color;
+}
+
+/*Nesting is great visually and if you're feeling lazy*/ 
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+
+    #{&}_paragraph {
+        font-weight: map-get($font-weights, bold);
+        
+        &:hover {
+            color: purple;
+        }
+    }
+}
+

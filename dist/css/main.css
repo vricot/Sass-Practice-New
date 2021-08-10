@@ -1,0 +1,20 @@
+/*Great for if you need to change, for instance, sizing in many different places. Can just change it where you define the variable*/
+body {
+  background: pink;
+  color: white;
+}
+
+/*Nesting is great visually and if you're feeling lazy*/
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main .main_paragraph {
+  font-weight: 700;
+}
+
+.main .main_paragraph:hover {
+  color: purple;
+}
+/*# sourceMappingURL=main.css.map */
