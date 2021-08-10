@@ -7,6 +7,31 @@
     @return map-get($font-weights, $weight-name);
 }
 
+/*Also great for avoiding having to repeat code*/
+
+/*mixins define styles, functions compute and return values*/
+
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
 /*Great for if you need to change, for instance, sizing in many different places. Can just change it where you define the variable*/
 
 body {
@@ -17,9 +42,7 @@ body {
 /*Nesting is great visually and if you're feeling lazy*/ 
 
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter(row);
     width: 80%;
     margin: 0 auto;
 
@@ -30,5 +53,12 @@ body {
             color: purple;
         }
     }
+
+    @include mobile{
+        flex-direction: column;
+    }
 }
 
+.light {
+    @include theme($light-theme: false);
+}

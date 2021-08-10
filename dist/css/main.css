@@ -6,6 +6,8 @@
   padding: 0;
 }
 
+/*Also great for avoiding having to repeat code*/
+/*mixins define styles, functions compute and return values*/
 /*Great for if you need to change, for instance, sizing in many different places. Can just change it where you define the variable*/
 body {
   background: pink;
@@ -23,6 +25,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 80%;
   margin: 0 auto;
 }
@@ -33,5 +39,14 @@ body {
 
 .main .main_paragraph:hover {
   color: purple;
+}
+
+@media (max-width: 800px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=main.css.map */
